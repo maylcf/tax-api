@@ -33,31 +33,27 @@ MongoClient.connect(process.env.MONGO, (err, db) => {
   // Routes
 
   app.get('/', function(req, res) {
-    res.render('index.html', { title: 'Welcome', user: req.user });
+    res.render('index.html', { title: 'Welcome'});
   });
   
   app.get('/country', function(req, res) {
-    res.render('country.html', { title: 'Welcome', user: req.user });
+    
+    console.log("call > /country");
+    res.render('country.html', { title: 'Welcome' });
   });
   
   app.get('/province', function(req, res) {
-    res.render('province.html', { title: 'Welcome', user: req.user });
+    res.render('province.html', { title: 'Welcome'});
   });
   
   app.post('/country/add', (req, res) => {
     
-    console.log("call > /api/country/add");
-    
     let name = req.body.name;
     let code = req.body.code;
     
-    console.log("--name: " + name);
-    console.log("--code: " + code);
-    
     if ( !name.trim() || !code.trim() )
     {
-      res.status(400);
-      res.render('country.html', { message: 'Contry name and code are required!'});
+      res.render('country.html', { message: 'Name and code are required!', error: 'true' });
     }
     else
     {
@@ -66,16 +62,13 @@ MongoClient.connect(process.env.MONGO, (err, db) => {
         'code': code
       },
       function (err, r) {
-        res.status(500);
-        res.json({message: err});
+        if (err) {
+          res.render('country.html', { message: err, error: 'true' });
+        }
       });
-
-      res.status(200);
-      res.json({message: 'Contry saved successfully.'});
+      
+      res.render('country.html', { message: 'Country saved!'});
     }
-    
-    res.render('country.html', { message: 'Country saved!'});
-
   }); 
   
   

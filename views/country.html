@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <h1>New Country</h1>
   <br />
-   <form action="https://maylcf-tax-api.glitch.me/country/add" method="post">
+   <form action="/country/add" method="post">
       <div class="form-group">
         <label for="Countryname">Country Name</label>
         <input d="Countryname" name="name" type="text" class="form-control" i placeholder="Ex: Canada" required>
@@ -14,6 +14,18 @@
         <input id="CountryCode" name="code" type="text" class="form-control" placeholder="Ex: CA" required>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
+     
+     <br />
+     <br />
+     
+      {% if message %}
+        {% if error %}
+          <div class="alert alert-danger" role="alert">{{message}}!</div>
+        {% else %}
+          <div class="alert alert-success" role="alert">{{message}}!</div>
+        {% endif %}
+      {% endif %}
+     
    </form>
 </div>
 {% endblock %}
