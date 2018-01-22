@@ -1,0 +1,29 @@
+{
+  "name": "mlcf-tax-api",
+  "version": "0.0.1",
+  "description": "An API made to store/retrieve tax information",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": "https://github.com/maylcf",
+  "author": "Mayara Felix",
+  "license": "MIT",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.2",
+    "consolidate": "^0.15.0",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.9",
+    "nunjucks": "^3.0.1"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}

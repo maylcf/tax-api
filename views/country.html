@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1>New Country</h1>
+  <br />
+   <form action="https://maylcf-tax-api.glitch.me/country/add" method="post">
+      <div class="form-group">
+        <label for="Countryname">Country Name</label>
+        <input d="Countryname" name="name" type="text" class="form-control" i placeholder="Ex: Canada" required>
+      </div>
+      <div class="form-group">
+        <label for="CountryCode">Country Code</label>
+        <input id="CountryCode" name="code" type="text" class="form-control" placeholder="Ex: CA" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+{% endblock %}
