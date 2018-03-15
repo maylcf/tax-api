@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1>New Country</h1>
+  <br />
+   <form>
+      <div class="form-group" method="post">
+        <label for="Countryname">Country Name</label>
+        <input type="text" class="form-control" id="Countryname" placeholder="Ex: Canada">
+      </div>
+      <div class="form-group">
+        <label for="CountryCode">Country Code</label>
+        <input type="text" class="form-control" id="CountryCode" placeholder="Ex: CA">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+{% endblock %}

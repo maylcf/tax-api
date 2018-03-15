@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1>Countries</h1>
+  <br />
+  <table class="table table-striped countries-table">
+    <thead>
+      <tr>
+        <th scope="col">Country Name</th>
+        <th scope="col">Country Code</th>
+        <th scope="col">&nbsp</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for country in countries %}
+        <tr>
+          <td>{{ country.name }}</td>
+          <td>{{ country.code }}</td>
+<!--           <td><button type="button" class="btn btn-info btn-sm btn-edit-country" value="{{ country.code }}">Edit</button></td> --> -->
+          
+          <td><a class="container" href="/auth/google">Log In with Google</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
