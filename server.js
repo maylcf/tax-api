@@ -71,10 +71,50 @@ MongoClient.connect(process.env.MONGO, (err, db) => {
     }
   }); 
   
+  app.get('/countries', (req, res) => {
+    country.find({}).toArray(function (err,result) {
+      if(err){
+        res.render('countries.html', { message: err, error: 'true' });
+      }
+      else {
+        //res.send(JSON.stringify(result));
+        console.log(result);
+        res.render('countries.html', {countries: result});
+      }
+    });   
+  }); 
   
-  /***********************/
-  /** Country ************/
-  /***********************/
+  app.post('/country/edit', function(req, res) {
+      //res.clearCookie('google-passport-example');
+      res.redirect('/');
+    }
+  );
+
+  
+//   app.post('/country/edit', (req, res) => {
+    
+//     var code = req.body.code;
+//     console.log('/country/edit - Code: ' + code);
+    
+//     country.findOne({code: code}, (err, result) => {
+//       if (err) {
+//         res.render('countries.html', { message: err, error: 'true' });
+//       }
+      
+//       if (result)
+//       {
+//         var selectedCountry = JSON.stringify(result);
+//         console.log(selectedCountry);
+//         //res.render('country.html', { country: selectedCountry});
+//         res.redirect(200,'country.html', { country: selectedCountry});
+        
+//       }
+//     });
+//   }); 
+
+  /***************************/
+  /** Country API ************/
+  /***************************/
   
   app.get("/api/countries", (req, res) => {
     

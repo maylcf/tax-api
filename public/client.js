@@ -4,7 +4,7 @@
 // by default, you've got jQuery,
 // add other scripts at the bottom of index.html
 
-// $(function() {
+$(function() {
 //   console.log('hello world :o');
   
 //   $.get('/dreams', function(dreams) {
@@ -22,5 +22,21 @@
 //       $('input').focus();
 //     });
 //   });
+  
+//     $('.btn-edit-country').click(function(event) {
+//       console.log($('.btn-edit-country').val);
+      
+//     });
+  
+  $('table .btn-edit-country').click(function() {
+    var tr = $(this).closest('tr'); // get current row
+    var code = tr.children('td:eq(1)').text(); //get the text from second col of current row
+    
+    console.log(code); 
+    
+    $.post('/country/edit/', { code: code });
+    
+  });
 
-// });
+
+});
